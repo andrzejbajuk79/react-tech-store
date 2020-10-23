@@ -1,17 +1,21 @@
 import React,{Component, useContext} from 'react'
+import { linkData } from './linkData';
 
 const ProductContext = React.createContext();
 
 
 class ProductProvider extends Component {
  state ={
-  sidebarOpen:false,
+  sidebarOpen:true,
   cartOpen:false,
-  cartItems:0
+  cartItems:0,
+  links:linkData
  }
  
  handleSidebar=()=>{
-  this.setState({sidebarOpen:!this.state.sidebarOpen})
+  console.log('sidebarOpen',this.state.sidebarOpen);
+  
+  this.setState(prevState => ({ sidebarOpen: !prevState.sidebarOpen }));
  }
  handleCart=()=>{
   this.setState({cartOpen:!this.state.cartOpen})
@@ -37,9 +41,7 @@ openCart=()=>{
   </ProductContext.Provider>
  }
 }
- const ProductState = () => {
- return useContext(ProductContext);
-};
-// const ProductConsumer = ProductContext.Consumer
+ const ProductState = () => useContext(ProductContext);
+ 
 
 export {ProductProvider,ProductState}

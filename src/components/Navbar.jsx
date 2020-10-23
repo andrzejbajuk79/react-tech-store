@@ -1,3 +1,5 @@
+
+import PropTypes from 'prop-types'
 import React from 'react'
 import {FaBars,FaCartPlus} from 'react-icons/fa'
 import styled from 'styled-components'
@@ -5,7 +7,38 @@ import {ProductState} from '../context'
 import logo from '../images/logo.svg'
 
 const NavWrapper= styled.nav`
-
+position:-webkit-sticky;
+position:sticky;
+top:0;
+width:100%;
+padding:1rem 1.5rem;
+background:var(--mainGrey);
+border-bottom:3px solid var(--primaryColor);
+.nav-center {
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ max-width:1170px;
+ margin:0 auto;
+}
+.nav-icon {
+ font-size:1.5rem;
+ cursor: pointer;
+}
+.nav-cart{
+ position:relative
+ 
+}
+.cart-items {
+ background:var(--primaryColor);
+ color:var(--mainWhite);
+ font-size:0.85rem;
+ position:absolute;
+ top:-7px;
+ right:-9px;
+ padding:0 5px;
+ border-radius:50%;
+}
 `
 
 const Navbar = props => {
@@ -25,5 +58,3 @@ const Navbar = props => {
 }
 
 export default Navbar
-
-
